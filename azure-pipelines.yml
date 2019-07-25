@@ -15,14 +15,9 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-# ASP.NET Core
-- task: Kubernetes@1
+- task: Docker@2
   inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'myAKSClusterConnection'
-    namespace: 'CICD'
-    command: 
-    useConfigurationFile: true
-    configuration: 'ktapp3-all-in-one.yaml'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
+    containerRegistry: 'acrktdcl_connection'
+    repository: 'KTApp3'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
