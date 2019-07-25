@@ -8,7 +8,7 @@ RUN dotnet restore
 COPY . .
 
 #publicamos a la carpeta out
-RUN dotnet publish --runtime ubuntu.18.04-x64 -c Release -o out
+RUN dotnet publish -c Release -o out
 
 #step 2: run 
 FROM microsoft/dotnet:aspnetcore-runtime 
