@@ -14,13 +14,10 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-- script: docker-compose -f docker-compose.prod.yaml build
-  displayName: 'Build Image'
-- script: docker tag ktapp4_ktapp4:latest acrktdcl.azurecr.io/ktapp3_ktapp4:{BuildVersion}
-
-#- task: Docker@2
-#  inputs:
-#    containerRegistry: 'acrktdcl_connection'
-#    repository: 'KTApp3'
-#    command: 'buildAndPush'
-#    Dockerfile: '**/Dockerfile'
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Visual Studio Enterprise – MPN (34e51209-e158-4d5a-b237-594f95697e96)'
+    azureContainerRegistry: '{"loginServer":"acrktdcl.azurecr.io", "id" : "/subscriptions/34e51209-e158-4d5a-b237-594f95697e96/resourceGroups/KubernetesTest/providers/Microsoft.ContainerRegistry/registries/ACRKTDCL"}'
+    dockerComposeFile: '**/docker-compose.prod.yaml'
+    action: 'Run a Docker Compose command'
