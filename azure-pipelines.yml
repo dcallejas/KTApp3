@@ -14,10 +14,13 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- script: docker-compose -f docker-compose.prod.yaml build
+  displayName: 'Build Image'
+- script: docker tag ktapp4_ktapp4:latest acrktdcl.azurecr.io/ktapp3_ktapp4:{BuildVersion}
 
-- task: Docker@2
-  inputs:
-    containerRegistry: 'acrktdcl_connection'
-    repository: 'KTApp3'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+#- task: Docker@2
+#  inputs:
+#    containerRegistry: 'acrktdcl_connection'
+#    repository: 'KTApp3'
+#    command: 'buildAndPush'
+#    Dockerfile: '**/Dockerfile'
