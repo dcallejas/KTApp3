@@ -2,7 +2,7 @@ version: '3'
 services:
   ktapp3:
     build: 
-      context: ./ktapp3
+      context: ./KTApp3
       dockerfile: Prod.Dockerfile
     ports:
     - 4000:4000
