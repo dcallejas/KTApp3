@@ -13,18 +13,22 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
-- task: DockerCompose@0
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscription: 'Visual Studio Enterprise – MPN (34e51209-e158-4d5a-b237-594f95697e96)'
-    azureContainerRegistry: '{"loginServer":"acrktdcl.azurecr.io", "id" : "/subscriptions/34e51209-e158-4d5a-b237-594f95697e96/resourceGroups/KubernetesTest/providers/Microsoft.ContainerRegistry/registries/ACRKTDCL"}'
-    dockerComposeFile: '**/docker-compose.cicd.yaml'
-    action: 'Run a Docker Compose command'
-    dockerComposeCommand: 'build'
-- task: Docker@2
-  inputs:
-    containerRegistry: 'acrktdcl_connection'
-    command: 'push'
-    repository: ktapp3_ktapp3
+ - task: Docker@1 
+   displayName: 'Build an image'
+   inputs:
+     containerregistrytype: 'container Registry'
+     dockerRegistryEndpoint: acrktdcl
+     imageName: 'acrktdcl/ktapp3:$(Build.BuildId)'
+     command: build an image
+     dockerFile: '**/Dockerfile'
+ - task: Docker@1
+   displayName: Login
+   inputs:
+     containerregistrytype: 'container Registry'
+     dockerRegistryEndpoint: acrktdcl
+     command: login
+ - task: Docker@1
+   displayName: 'Push an image'
+   inputs:
+     command: push an image
+     imageName: 'acrktdcl/ktapp3:$(Build.BuildId)'
