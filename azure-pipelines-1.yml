@@ -20,3 +20,7 @@ steps:
      tags: $(Build.BuildId)
      command: 'buildAndPush'
      Dockerfile: '**/Dockerfile'
+ - task: PublishPipelineArtifact@1
+   inputs:
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'Files'
