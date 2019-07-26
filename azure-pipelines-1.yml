@@ -27,3 +27,4 @@ steps:
   inputs:
     containerRegistry: 'acrktdcl_connection'
     command: 'push'
+    repository: ktapp3_ktapp3
