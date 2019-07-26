@@ -21,6 +21,7 @@ steps:
     azureContainerRegistry: '{"loginServer":"acrktdcl.azurecr.io", "id" : "/subscriptions/34e51209-e158-4d5a-b237-594f95697e96/resourceGroups/KubernetesTest/providers/Microsoft.ContainerRegistry/registries/ACRKTDCL"}'
     dockerComposeFile: '**/docker-compose.cicd.yaml'
     action: 'Run a Docker Compose command'
+    additionalImageTags: $(Build.BuildId)
     dockerComposeCommand: 'build' 
 - task: DockerCompose@0
   inputs:
@@ -29,4 +30,5 @@ steps:
     azureContainerRegistry: '{"loginServer":"acrktdcl.azurecr.io", "id" : "/subscriptions/34e51209-e158-4d5a-b237-594f95697e96/resourceGroups/KubernetesTest/providers/Microsoft.ContainerRegistry/registries/ACRKTDCL"}'
     dockerComposeFile: '**/docker-compose.cicd.yaml'
     action: 'Run a Docker Compose command'
+    additionalImageTags: $(Build.BuildId)
     dockerComposeCommand: 'push'
