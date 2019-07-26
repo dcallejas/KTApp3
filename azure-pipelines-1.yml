@@ -15,4 +15,15 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Visual Studio Enterprise – MPN (34e51209-e158-4d5a-b237-594f95697e96)'
+    azureContainerRegistry: '{"loginServer":"acrktdcl.azurecr.io", "id" : "/subscriptions/34e51209-e158-4d5a-b237-594f95697e96/resourceGroups/KubernetesTest/providers/Microsoft.ContainerRegistry/registries/ACRKTDCL"}'
+    dockerComposeFile: '**/docker-compose.prod.yml'
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'build'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'acrktdcl_connection'
+    command: 'push'
