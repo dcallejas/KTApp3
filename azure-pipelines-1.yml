@@ -19,7 +19,7 @@ steps:
      repository: 'ktapp3_ktapp3'
      tags: $(Build.BuildId)
      command: 'buildAndPush'
-     Dockerfile: '**/Dockerfile'
+     Dockerfile: '**/Prod.Dockerfile'
  - task: PublishPipelineArtifact@1
    inputs:
     targetPath: '$(Pipeline.Workspace)'
