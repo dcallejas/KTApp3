@@ -13,22 +13,10 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
- - task: Docker@1 
-   displayName: 'Build an image'
+ - task: Docker@2
    inputs:
-     containerregistrytype: 'Azure Container Registry'
-     azureContainerRegistry: '{"loginServer":"acrktdcl.azurecr.io", "id" : "/subscriptions/34e51209-e158-4d5a-b237-594f95697e96/resourceGroups/KubernetesTest/providers/Microsoft.ContainerRegistry/registries/ACRKTDCL"}'
-     imageName: 'acrktdcl/ktapp3:$(Build.BuildId)'
-     command: build an image
-     dockerFile: '**/Dockerfile'
- - task: Docker@1
-   displayName: Login
-   inputs:
-     containerregistrytype: 'Azure Container Registry'
-     azureContainerRegistry: '{"loginServer":"acrktdcl.azurecr.io", "id" : "/subscriptions/34e51209-e158-4d5a-b237-594f95697e96/resourceGroups/KubernetesTest/providers/Microsoft.ContainerRegistry/registries/ACRKTDCL"}'
-     command: login
- - task: Docker@1
-   displayName: 'Push an image'
-   inputs:
-     command: push an image
-     imageName: 'acrktdcl/ktapp3:$(Build.BuildId)'
+     containerRegistry: 'acrktdcl_connection'
+     repository: 'ktapp3_ktapp3'
+     tags: $(Build.BuildId)
+     command: 'buildAndPush'
+     Dockerfile: '**/Dockerfile'
