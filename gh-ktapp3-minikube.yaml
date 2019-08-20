@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: gh-ktapp3
 spec:
-  replicas: 2
+  replicas: 4
   strategy:
     rollingUpdate:
       maxSurge: 1
