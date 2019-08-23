@@ -1,5 +1,6 @@
+## Script sacado d: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks
 
-$ACR_NAME='acrktdcl'
+$ACR_NAME='brownbag'
 $SERVICE_PRINCIPAL_NAME='acr-service-principal'
 
 # Populate the ACR login server and resource id.

@@ -1,0 +1,14 @@
+C:\_EXE\GH_KTApp3\DataApi\bin\Debug\netcoreapp2.2\DataApi.deps.json
+C:\_EXE\GH_KTApp3\DataApi\bin\Debug\netcoreapp2.2\DataApi.runtimeconfig.json
+C:\_EXE\GH_KTApp3\DataApi\bin\Debug\netcoreapp2.2\DataApi.runtimeconfig.dev.json
+C:\_EXE\GH_KTApp3\DataApi\bin\Debug\netcoreapp2.2\DataApi.dll
+C:\_EXE\GH_KTApp3\DataApi\obj\Debug\netcoreapp2.2\DataApi.csproj.CoreCompileInputs.cache
+C:\_EXE\GH_KTApp3\DataApi\obj\Debug\netcoreapp2.2\DataApi.RazorAssemblyInfo.cache
+C:\_EXE\GH_KTApp3\DataApi\obj\Debug\netcoreapp2.2\DataApi.RazorAssemblyInfo.cs
+C:\_EXE\GH_KTApp3\DataApi\obj\Debug\netcoreapp2.2\DataApi.AssemblyInfoInputs.cache
+C:\_EXE\GH_KTApp3\DataApi\obj\Debug\netcoreapp2.2\DataApi.AssemblyInfo.cs
+C:\_EXE\GH_KTApp3\DataApi\obj\Debug\netcoreapp2.2\DataApi.RazorTargetAssemblyInfo.cache
+C:\_EXE\GH_KTApp3\DataApi\bin\Debug\netcoreapp2.2\DataApi.pdb
+C:\_EXE\GH_KTApp3\DataApi\obj\Debug\netcoreapp2.2\DataApi.csprojAssemblyReference.cache
+C:\_EXE\GH_KTApp3\DataApi\obj\Debug\netcoreapp2.2\DataApi.dll
+C:\_EXE\GH_KTApp3\DataApi\obj\Debug\netcoreapp2.2\DataApi.pdb

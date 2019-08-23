@@ -1,6 +1,17 @@
-﻿FROM microsoft/dotnet:sdk
-RUN mkdir app
+﻿#step 1: build 
+FROM microsoft/dotnet:sdk AS build-stage 
+RUN mkdir app 
 WORKDIR /app
+
+COPY *.csproj . 
+RUN dotnet restore 
 COPY . .
-RUN dotnet restore
-CMD dotnet watch run "http://0.0.0.0:4000;https://0.0.0.0:4001"
+
+#publicamos a la carpeta out
+RUN dotnet publish -c Release -o out
+
+#step 2: run 
+FROM microsoft/dotnet:aspnetcore-runtime 
+WORKDIR /app 
+COPY --from=build-stage /app/out . 
+ENTRYPOINT dotnet KTApp3.dll --urls "http://0.0.0.0:5000"

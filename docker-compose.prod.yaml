@@ -1,9 +1,0 @@
-version: '3'
-services:
-  gh-ktapp3:
-    build: 
-      context: ./KTApp3
-      dockerfile: Prod.Dockerfile
-    ports:
-    - 5000:5000
-    - 5001:5001

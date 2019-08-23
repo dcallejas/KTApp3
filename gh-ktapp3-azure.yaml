@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: gh-ktapp3
-        image: dcallejas/gh_ktapp3:v4
+        image: brownbag.azurecr.io/gh_ktapp3:v4
         ports:
         - containerPort: 5000
         resources:
@@ -25,7 +25,7 @@ spec:
           limits:
             cpu: 200m
       - name: dataapi
-        image: dcallejas/dataapi:v1
+        image: brownbag.azurecr.io/dataapi:v1
         ports:
         - containerPort: 4000
         resources:
